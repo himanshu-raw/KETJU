@@ -1,18 +1,71 @@
-# React + Vite
+🚀 KETJU – Decentralized Supply Chain Tracking System
+📌 Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KETJU is a decentralized supply chain tracking system designed to ensure end-to-end transparency from farmer to consumer using blockchain technology.
 
-Currently, two official plugins are available:
+Each product batch is assigned a unique on-chain ID, allowing all stakeholders—farmer, processor, distributor, and retailer—to log lifecycle events securely. By leveraging blockchain immutability, KETJU guarantees that supply chain data is tamper-proof, verifiable, and trustworthy.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Consumers can simply scan a QR code to access the complete history of a product—no crypto wallet required.
 
-## React Compiler
+🎯 Key Features
+🔗 Blockchain-Based Tracking
+Immutable recording of every supply chain event
+🆔 Unique Product Identity
+Each batch is assigned a unique on-chain ID
+👥 Role-Based Smart Contracts
+Different stakeholders log events securely
+📦 End-to-End Transparency
+Track products from origin to final delivery
+🌐 IPFS Integration
+Store certificates and product images in a decentralized manner
+📱 QR Code Verification
+Consumers can scan and verify product authenticity instantly
+⚡ Gasless Transactions
+Backend relays transactions so users don’t need crypto
+🔐 Authentication & Security
+Secure login and access control via backend
+🏗️ System Architecture
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+KETJU follows a hybrid architecture combining blockchain and traditional backend services:
 
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔹 Frontend
+Built using React
+Role-specific dashboards:
+Farmer
+Processor
+Distributor
+Retailer
+Public product verification page (QR-based access)
+🔹 Backend
+Node.js + Express
+MongoDB for user data and caching
+Handles:
+Authentication
+API requests
+Gasless transaction relay
+🔹 Blockchain Layer
+Smart contracts for:
+Product registration
+Event logging
+Role-based access control
+🔹 Storage
+IPFS for:
+Certificates
+Product images
+🔄 Workflow
+🧑‍🌾 Farmer
+Creates product batch
+Uploads initial data (origin, quality, etc.)
+🏭 Processor
+Adds processing details
+🚚 Distributor
+Logs shipment and logistics data
+🏪 Retailer
+Finalizes product availability
+👤 Consumer
+Scans QR code
+Views:
+Full supply chain history
+Certifications
+Images (via IPFS)
+Blockchain proof
