@@ -1,8 +1,9 @@
 {
-  "name": "major",
+  "name": "ketju",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "description": "KETJU - Blockchain-Based Food Supply Chain Tracking",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

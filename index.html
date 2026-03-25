@@ -1,12 +1,87 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KETJU</title>
+    <title>KETJU | Blockchain-Based Food Supply Chain Tracking</title>
+    <meta name="description" content="KETJU uses Polygon blockchain to create an immutable, tamper-proof record of your food's journey." />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#c3c5d8",
+              "on-secondary-fixed": "#071845",
+              "surface-tint": "#0050e3",
+              "surface-dim": "#dcd8e7",
+              "primary-container": "#0254ec",
+              "on-surface": "#1b1a25",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#310b32",
+              "secondary": "#4e5c8c",
+              "on-secondary-container": "#445281",
+              "secondary-fixed": "#dbe1ff",
+              "tertiary-fixed": "#ffd6f8",
+              "on-tertiary-container": "#ffd2f8",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#e4e0f0",
+              "surface-container-low": "#f6f2ff",
+              "tertiary-container": "#81537e",
+              "tertiary-fixed-dim": "#edb5e6",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#302f3b",
+              "on-primary-fixed": "#00164e",
+              "surface-bright": "#fcf8ff",
+              "secondary-fixed-dim": "#b6c5fb",
+              "on-primary-fixed-variant": "#003cae",
+              "background": "#fcf8ff",
+              "surface-container-highest": "#e4e0f0",
+              "tertiary": "#673c65",
+              "primary": "#003fb7",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fcf8ff",
+              "primary-fixed-dim": "#b5c4ff",
+              "surface-container": "#f0ecfb",
+              "secondary-container": "#b9c7fd",
+              "inverse-on-surface": "#f3effe",
+              "surface-container-high": "#eae6f5",
+              "on-secondary-fixed-variant": "#364572",
+              "on-surface-variant": "#434655",
+              "on-background": "#1b1a25",
+              "on-error": "#ffffff",
+              "on-primary-container": "#d8deff",
+              "outline": "#737687",
+              "on-tertiary-fixed-variant": "#623761",
+              "primary-fixed": "#dce1ff",
+              "inverse-primary": "#b5c4ff",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+          },
+        },
+      }
+    </script>
   </head>
-  <body>
+  <body class="font-body">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
