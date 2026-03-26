@@ -44,12 +44,6 @@ function VerifyProduct() {
 </header>
 <!-- Filler to prevent content overlap -->
 <div class="h-[72px] w-full"></div>
-<button class="bg-white border-1.5 border-primary-container text-primary-container px-5 py-2 rounded-full text-sm font-semibold hover:bg-surface-container transition-all flex items-center gap-2">
-<span class="material-symbols-outlined text-sm">search</span>
-                Verify Another Product
-            </button>
-</div>
-</header>
 <main class="pt-24 pb-32">
 <!-- Product Hero Header -->
 <section class="max-w-screen-2xl mx-auto px-6 mb-20">
