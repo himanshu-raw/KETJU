@@ -21,24 +21,31 @@ export default function QRScanner() {
       try { setRecentScans(JSON.parse(stored)); } catch { /* ignore */ }
     }
 
+    let mounted = true;
+    let activeStream: MediaStream | null = null;
+
     // Request camera permissions on mount
     const requestCamera = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        if (!mounted) {
+          stream.getTracks().forEach(track => track.stop());
+          return;
+        }
+        activeStream = stream;
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
         }
       } catch (err) {
-        console.error('Camera permission denied:', err);
+        if (mounted) console.error('Camera permission denied:', err);
       }
     };
     requestCamera();
 
     return () => {
-      // Clean up stream on unmount
-      if (videoRef.current && videoRef.current.srcObject) {
-        const stream = videoRef.current.srcObject as MediaStream;
-        stream.getTracks().forEach(track => track.stop());
+      mounted = false;
+      if (activeStream) {
+        activeStream.getTracks().forEach(track => track.stop());
       }
     };
   }, []);
