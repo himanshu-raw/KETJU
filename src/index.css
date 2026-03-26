@@ -78,9 +78,15 @@
   --color-surface-container-lowest: var(--surface-container-lowest);
 
   --animate-scroll: scroll 30s linear infinite;
+
   @keyframes scroll {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
+    from {
+      transform: translateX(-50%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
   }
 }
 
@@ -122,8 +128,15 @@ button {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
@@ -134,4 +147,3 @@ button {
   background: rgba(0, 80, 227, 0.3);
   color: white;
 }
-
