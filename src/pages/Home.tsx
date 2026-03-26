@@ -61,15 +61,16 @@ const Home: React.FC = () => {
             </div>
             
             {/* Right Visual: Technical Diagram */}
-            <div className="w-full md:w-[45%] relative">
-              <div className="aspect-square w-full rounded-3xl bg-surface-container-low flex items-center justify-center p-8 relative overflow-hidden">
+            <div className="w-full md:w-[45%] relative mt-12 md:mt-0">
+              <div className="aspect-square w-full rounded-3xl bg-surface-container-low flex items-center justify-center p-4 md:p-8 relative">
                 {/* Abstract Mesh Background */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0254ec 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
                 
                 {/* Blockchain Visual */}
-                <div className="relative w-full h-full flex flex-col justify-between py-12">
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-                    <path d="M 50% 15% L 20% 40% L 50% 65% L 80% 40% Z" fill="none" stroke="url(#grad-hero)" strokeDasharray="8,4" strokeWidth="2"></path>
+                {/* Blockchain Visual */}
+                <div className="relative w-full h-full">
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="none">
+                    <path d="M 50% 20% L 20% 50% L 50% 80% L 80% 50% Z" fill="none" stroke="url(#grad-hero)" strokeDasharray="4,4" strokeWidth="1.5"></path>
                     <defs>
                       <linearGradient id="grad-hero" x1="0%" x2="100%" y1="0%" y2="100%">
                         <stop offset="0%" style={{ stopColor: '#16A34A', stopOpacity: 1 }}></stop>
@@ -80,53 +81,54 @@ const Home: React.FC = () => {
                   </svg>
                   
                   {/* Node: Farm */}
-                  <div className="flex flex-col items-center gap-2 z-10 self-center">
-                    <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border-2 border-emerald-500">
-                      <span className="material-symbols-outlined text-emerald-600 text-3xl">agriculture</span>
+                  <div className="absolute top-[12%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10">
+                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-white shadow-md flex items-center justify-center border-2 border-emerald-500">
+                      <span className="material-symbols-outlined text-emerald-600 text-xl md:text-2xl">agriculture</span>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Farm</span>
+                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-emerald-700 bg-emerald-50/80 px-1.5 py-0.5 rounded backdrop-blur-sm">Farm</span>
                   </div>
                   
-                  <div className="flex justify-between w-full px-4">
-                    {/* Node: Processor */}
-                    <div className="flex flex-col items-center gap-2 z-10">
-                      <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border-2 border-amber-500">
-                        <span className="material-symbols-outlined text-amber-600 text-3xl">precision_manufacturing</span>
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-widest text-amber-700 bg-amber-50 px-2 py-0.5 rounded">Processor</span>
+                  {/* Node: Processor */}
+                  <div className="absolute top-[42%] left-[10%] flex flex-col items-center gap-1 z-10">
+                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-white shadow-md flex items-center justify-center border-2 border-amber-500">
+                      <span className="material-symbols-outlined text-amber-600 text-xl md:text-2xl">precision_manufacturing</span>
                     </div>
-                    {/* Node: Retailer */}
-                    <div className="flex flex-col items-center gap-2 z-10">
-                      <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border-2 border-purple-500">
-                        <span className="material-symbols-outlined text-purple-600 text-3xl">storefront</span>
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-widest text-purple-700 bg-purple-50 px-2 py-0.5 rounded">Retailer</span>
+                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-amber-700 bg-amber-50/80 px-1.5 py-0.5 rounded backdrop-blur-sm">Processor</span>
+                  </div>
+
+                  {/* Node: Retailer */}
+                  <div className="absolute top-[42%] right-[10%] flex flex-col items-center gap-1 z-10">
+                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl bg-white shadow-md flex items-center justify-center border-2 border-purple-500">
+                      <span className="material-symbols-outlined text-purple-600 text-xl md:text-2xl">storefront</span>
                     </div>
+                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-purple-700 bg-purple-50/80 px-1.5 py-0.5 rounded backdrop-blur-sm">Retailer</span>
                   </div>
                   
                   {/* Node: Consumer */}
-                  <div className="flex flex-col items-center gap-2 z-10 self-center">
-                    <div className="w-20 h-20 rounded-full bg-primary-container shadow-xl flex items-center justify-center border-4 border-white">
-                      <span className="material-symbols-outlined text-white text-4xl">person_check</span>
+                  <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10">
+                    <div className="w-12 h-12 md:w-18 md:h-18 rounded-full bg-primary-container shadow-lg flex items-center justify-center border-4 border-white/50 backdrop-blur-sm transition-transform hover:scale-110 duration-300">
+                      <span className="material-symbols-outlined text-white text-xl md:text-3xl">person_check</span>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-primary bg-primary-fixed px-3 py-1 rounded-full">Consumer</span>
+                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-primary bg-primary-fixed/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">Consumer</span>
                   </div>
                   
                   {/* Center: The Chain */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-inner flex items-center justify-center text-primary-container border border-slate-100">
-                    <span className="material-symbols-outlined animate-pulse">link</span>
+                  <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/90 shadow-inner flex items-center justify-center text-primary-container border border-slate-100 z-[5]">
+                    <span className="material-symbols-outlined animate-pulse text-lg md:text-2xl">link</span>
                   </div>
                 </div>
               </div>
               
               {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white/70 backdrop-blur-[20px] p-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/40">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase font-bold text-blue-800 tracking-widest">Security Protocol</p>
-                  <p className="text-xs font-medium text-slate-700">Polygon Mainnet Active</p>
+              <div className="absolute top-0 left-0 bg-white/40 backdrop-blur-[10px] p-2 md:p-3 rounded-2xl border border-white/20 z-20 hover:bg-white/90 transition-all duration-500">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                    <span className="material-symbols-outlined text-sm md:text-base" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
+                  </div>
+                  <div className="hidden sm:block">
+                    <p className="text-[8px] md:text-[9px] uppercase font-black text-blue-800 tracking-[0.2em] leading-none mb-1">Security</p>
+                    <p className="text-[9px] md:text-[10px] font-bold text-slate-500 leading-none">Polygon</p>
+                  </div>
                 </div>
               </div>
             </div>
