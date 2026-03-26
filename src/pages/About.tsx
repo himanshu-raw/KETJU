@@ -72,7 +72,7 @@ export default function About() {
               A high-performance, blockchain-native tooling ecosystem designed to unify and secure the global flow of goods.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#team" className="px-8 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">
+              <a href="#team" className="px-8 py-3 rounded-xl bg-blue-600 !text-white font-bold hover:bg-blue-700 hover:scale-105 hover:shadow-xl active:scale-95 transition-all shadow-lg shadow-blue-600/20">
                 Meet the team
               </a>
               <Link to="/verify" className="px-8 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 font-bold hover:bg-slate-50 transition-all shadow-sm">
@@ -201,7 +201,7 @@ export default function About() {
           <div className="relative z-10">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight text-slate-900">Ready to secure the chain?</h2>
             <div className="flex flex-wrap justify-center gap-6">
-              <Link to="/signup" className="px-10 py-4 rounded-2xl bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20">
+              <Link to="/signup" className="px-10 py-4 rounded-2xl bg-blue-600 !text-white font-bold text-lg hover:bg-blue-700 hover:scale-105 hover:shadow-xl active:scale-95 transition-all shadow-xl shadow-blue-600/20">
                 Get Started
               </Link>
               <Link to="/verify" className="px-10 py-4 rounded-2xl bg-white border border-slate-200 text-slate-900 font-bold text-lg hover:bg-slate-50 transition-all shadow-sm">
