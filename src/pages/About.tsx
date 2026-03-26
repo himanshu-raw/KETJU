@@ -220,7 +220,6 @@ export default function About() {
           </div>
           <div className="flex gap-12 text-sm font-bold text-slate-500">
             <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link to="/about" className="hover:text-blue-600 transition-colors">About</Link>
             <Link to="/verify" className="hover:text-blue-600 transition-colors">Verify</Link>
             <a href="#" className="hover:text-blue-600 transition-colors">Docs</a>
           </div>
