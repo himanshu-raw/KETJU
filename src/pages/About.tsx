@@ -34,11 +34,11 @@ export default function About() {
   ];
 
   const partners = [
-    { name: 'Polygon', logo: 'https://cryptologos.cc/logos/polygon-matic-logo.png' },
-    { name: 'IPFS', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png' },
-    { name: 'Ethereum', logo: 'https://cryptologos.cc/logos/ethereum-eth-logo.png' },
-    { name: 'Chainlink', logo: 'https://cryptologos.cc/logos/chainlink-link-logo.png' },
-  ];
+  { name: 'Polygon', logo: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/white/matic.png' },
+  { name: 'Ethereum', logo: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/white/eth.png' },
+  { name: 'Chainlink', logo: 'https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/white/link.png' },
+  { name: 'IPFS', logo: 'https://raw.githubusercontent.com/ipfs-inactive/logo/master/raster/ipfs-logo-wider-strokes-white.png' },
+];
 
   return (
     <div className="min-h-screen bg-[#0a0a0b] font-sans text-white selection:bg-blue-500/30">
@@ -79,10 +79,10 @@ export default function About() {
             <p className="text-center text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Powering secure ecosystems globally</p>
           </div>
           <div className="flex relative items-center overflow-hidden">
-            <div className="flex gap-24 items-center animate-scroll whitespace-nowrap opacity-80 transition-opacity duration-500">
+            <div className="flex gap-24 items-center animate-scroll whitespace-nowrap opacity-60 transition-opacity duration-500 hover:opacity-100">
               {/* Double the logos for seamless scroll */}
               {[...partners, ...partners].map((partner, index) => (
-                <img key={`${partner.name}-${index}`} src={partner.logo} alt={partner.name} className="h-8 md:h-10 object-contain inline-block brightness-110 contrast-125" />
+                <img key={`${partner.name}-${index}`} src={partner.logo} alt={partner.name} className="h-6 md:h-8 object-contain inline-block brightness-200 contrast-125" />
               ))}
             </div>
           </div>
