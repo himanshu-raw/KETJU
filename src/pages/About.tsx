@@ -78,11 +78,14 @@ export default function About() {
           <div className="max-w-7xl mx-auto px-6 mb-8">
             <p className="text-center text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Powering secure ecosystems globally</p>
           </div>
-          <div className="flex relative items-center overflow-hidden">
-            <div className="flex gap-24 items-center animate-scroll whitespace-nowrap opacity-60 transition-opacity duration-500 hover:opacity-100">
+          <div className="flex relative items-center overflow-hidden py-12 md:py-16 min-h-[180px]">
+            <div className="flex gap-16 md:gap-32 items-center animate-scroll whitespace-nowrap">
               {/* Double the logos for seamless scroll */}
               {[...partners, ...partners].map((partner, index) => (
-                <img key={`${partner.name}-${index}`} src={partner.logo} alt={partner.name} className="h-6 md:h-8 object-contain inline-block brightness-200 contrast-125" />
+                <div key={`${partner.name}-${index}`} className="flex flex-col items-center gap-6 transition-all duration-300 opacity-40 hover:opacity-100 cursor-default group px-6">
+                  <img src={partner.logo} alt={partner.name} className="h-8 md:h-12 object-contain brightness-200 contrast-125 transition-transform duration-300 group-hover:scale-125" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 transition-colors duration-300 group-hover:text-white group-hover:scale-110">{partner.name}</span>
+                </div>
               ))}
             </div>
           </div>
