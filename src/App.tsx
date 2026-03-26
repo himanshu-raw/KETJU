@@ -16,6 +16,7 @@ import AdminPanel from './pages/AdminPanel';
 import VerifyProduct from './pages/VerifyProduct';
 import LogEvent from './pages/LogEvent';
 import QRScanner from './pages/QRScanner';
+import About from './pages/About';
 
 import './App.css';
 
@@ -33,27 +34,11 @@ const RoleDashboard: React.FC = () => {
 }
 
 const App: React.FC = () => {
-  const navigate = useNavigate();
-
-  const handleGlobalClick = (e: React.MouseEvent) => {
-    const a = (e.target as HTMLElement).closest('a');
-    if (a) {
-      const href = a.getAttribute('href');
-      // Only intercept internal links that start with /
-      if (href && href.startsWith('/')) {
-        e.preventDefault();
-        navigate(href);
-      }
-    }
-  };
 
   return (
     <AuthProvider>
       <AppProvider>
-        <div 
-          className="text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen bg-surface"
-          onClick={handleGlobalClick}
-        >
+        <div className="text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen bg-surface">
           <Routes>
             {/* Public */}
             <Route path="/"        element={<Home />} />
@@ -61,6 +46,7 @@ const App: React.FC = () => {
             <Route path="/signup"  element={<Signup />} />
             <Route path="/verify"  element={<VerifyProduct />} />
             <Route path="/scanner" element={<QRScanner />} />
+            <Route path="/about"   element={<About />} />
 
             {/* Protected — role-dispatched */}
             <Route path="/dashboard" element={<ProtectedRoute><RoleDashboard /></ProtectedRoute>} />
