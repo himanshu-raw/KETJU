@@ -288,7 +288,7 @@ const Home: React.FC = () => {
                 Learn more about KETJU's mission to reshape the global food supply chain through transparency and decentralization. Meet the team of engineers and designers behind the tech.
               </p>
               <Link to="/about#team">
-                <button className="bg-surface-container text-primary font-black px-8 py-4 rounded-full hover:bg-primary-container/10 transition-all flex items-center gap-2">
+                <button className="bg-blue-600 !text-white font-black px-8 py-4 rounded-full hover:bg-blue-700 hover:scale-105 hover:shadow-xl active:scale-95 transition-all flex items-center gap-2 shadow-lg shadow-blue-600/20">
                   Meet the Team <span className="material-symbols-outlined">group</span>
                 </button>
               </Link>
