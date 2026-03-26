@@ -60,73 +60,87 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Visual: Technical Diagram */}
+            {/* Right Visual: Circular Technical Diagram */}
             <div className="w-full md:w-[45%] relative">
-              <div className="aspect-square w-full rounded-3xl bg-surface-container-low flex items-center justify-center p-8 relative overflow-hidden">
+              <div className="aspect-square w-full rounded-3xl bg-slate-50 relative border border-slate-200/40 shadow-[inset_0_2px_10px_rgba(0,0,0,0.02)] flex items-center justify-center">
                 {/* Abstract Mesh Background */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0254ec 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }}></div>
-
-                {/* Blockchain Visual */}
-                <div className="relative w-full h-full flex flex-col justify-between py-12">
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
-                    <path d="M 50% 15% L 20% 40% L 50% 65% L 80% 40% Z" fill="none" stroke="url(#grad-hero)" strokeDasharray="8,4" strokeWidth="2"></path>
+                <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#0254ec 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+                
+                {/* Orbital Diagram Container */}
+                <div className="relative w-[70%] h-[70%]">
+                  <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100">
+                    {/* Main Circular Path */}
+                    <circle 
+                      cx="50" cy="50" r="48"
+                      fill="none" 
+                      stroke="url(#grad-circular-final)" 
+                      strokeDasharray="6,4" 
+                      strokeWidth="0.5"
+                      className="animate-[spin_40s_linear_infinite]"
+                      style={{ transformOrigin: 'center' }}
+                    />
+                    {/* Inner Subtle Ring */}
+                    <circle cx="50" cy="50" r="48" fill="none" stroke="#e2e8f0" strokeWidth="0.1" />
+                    
                     <defs>
-                      <linearGradient id="grad-hero" x1="0%" x2="100%" y1="0%" y2="100%">
+                      <linearGradient id="grad-circular-final" x1="0%" x2="100%" y1="0%" y2="100%">
                         <stop offset="0%" style={{ stopColor: '#16A34A', stopOpacity: 1 }}></stop>
                         <stop offset="50%" style={{ stopColor: '#0254ec', stopOpacity: 1 }}></stop>
                         <stop offset="100%" style={{ stopColor: '#673c65', stopOpacity: 1 }}></stop>
                       </linearGradient>
                     </defs>
                   </svg>
-
-                  {/* Node: Farm */}
-                  <div className="flex flex-col items-center gap-2 z-10 self-center">
-                    <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border-2 border-emerald-500">
-                      <span className="material-symbols-outlined text-emerald-600 text-3xl">agriculture</span>
+                  
+                  {/* Node: Farm (Top: 50, 2) */}
+                  <div className="absolute left-[50%] top-[2%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex items-center justify-center border border-emerald-500/30 text-emerald-600">
+                      <span className="material-symbols-outlined text-xl md:text-3xl">agriculture</span>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Farm</span>
+                    <div className="absolute top-[calc(100%+8px)] text-[9px] md:text-xs font-bold uppercase tracking-widest text-emerald-700 bg-white shadow-sm border border-emerald-100 px-3 py-1 rounded-full whitespace-nowrap">Farm</div>
+                  </div>
+                  
+                  {/* Node: Processor (Left: 2, 50) */}
+                  <div className="absolute left-[2%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex items-center justify-center border border-amber-500/30 text-amber-600">
+                      <span className="material-symbols-outlined text-xl md:text-3xl">precision_manufacturing</span>
+                    </div>
+                    <div className="absolute top-[calc(100%+8px)] text-[9px] md:text-xs font-bold uppercase tracking-widest text-amber-700 bg-white shadow-sm border border-amber-100 px-3 py-1 rounded-full whitespace-nowrap">Processor</div>
                   </div>
 
-                  <div className="flex justify-between w-full px-4">
-                    {/* Node: Processor */}
-                    <div className="flex flex-col items-center gap-2 z-10">
-                      <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border-2 border-amber-500">
-                        <span className="material-symbols-outlined text-amber-600 text-3xl">precision_manufacturing</span>
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-widest text-amber-700 bg-amber-50 px-2 py-0.5 rounded">Processor</span>
+                  {/* Node: Retailer (Right: 98, 50) */}
+                  <div className="absolute left-[98%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-2xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex items-center justify-center border border-purple-500/30 text-purple-600">
+                      <span className="material-symbols-outlined text-xl md:text-3xl">storefront</span>
                     </div>
-                    {/* Node: Retailer */}
-                    <div className="flex flex-col items-center gap-2 z-10">
-                      <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center border-2 border-purple-500">
-                        <span className="material-symbols-outlined text-purple-600 text-3xl">storefront</span>
-                      </div>
-                      <span className="text-xs font-bold uppercase tracking-widest text-purple-700 bg-purple-50 px-2 py-0.5 rounded">Retailer</span>
-                    </div>
+                    <div className="absolute top-[calc(100%+8px)] text-[9px] md:text-xs font-bold uppercase tracking-widest text-purple-700 bg-white shadow-sm border border-purple-100 px-3 py-1 rounded-full whitespace-nowrap">Retailer</div>
                   </div>
-
-                  {/* Node: Consumer */}
-                  <div className="flex flex-col items-center gap-2 z-10 self-center">
-                    <div className="w-20 h-20 rounded-full bg-primary-container shadow-xl flex items-center justify-center border-4 border-white">
-                      <span className="material-symbols-outlined text-white text-4xl">person_check</span>
+                  
+                  {/* Node: Consumer (Bottom: 50, 98) */}
+                  <div className="absolute left-[50%] top-[98%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+                    <div className="w-12 h-12 md:w-20 md:h-20 rounded-full bg-blue-600 shadow-[0_10px_40px_rgba(2,84,236,0.3)] flex items-center justify-center border-4 border-white text-white">
+                      <span className="material-symbols-outlined text-2xl md:text-4xl">person_check</span>
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-primary bg-primary-fixed px-3 py-1 rounded-full">Consumer</span>
+                    <div className="absolute top-[calc(100%+8px)] text-[9px] md:text-xs font-bold uppercase tracking-widest text-blue-600 bg-white shadow-sm border border-blue-100 px-4 py-1.5 rounded-full whitespace-nowrap">Consumer</div>
                   </div>
-
-                  {/* Center: The Chain */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-inner flex items-center justify-center text-primary-container border border-slate-100">
-                    <span className="material-symbols-outlined animate-pulse">link</span>
+                  
+                  {/* Center Node: The Immutable Link */}
+                  <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 group">
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-white shadow-inner flex items-center justify-center text-blue-600 border border-blue-50/50 z-0 relative">
+                      <div className="absolute inset-0 bg-blue-400/5 rounded-full animate-pulse scale-150"></div>
+                      <span className="material-symbols-outlined text-xl md:text-3xl relative">link</span>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white/70 backdrop-blur-[20px] p-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/40">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>shield</span>
+              
+              {/* Floating Verified Badge */}
+              <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex items-center gap-3 border border-white/50 z-20">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white shrink-0 shadow-lg shadow-blue-500/20">
+                  <span className="material-symbols-outlined text-sm md:text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase font-bold text-blue-800 tracking-widest">Security Protocol</p>
-                  <p className="text-xs font-medium text-slate-700">Polygon Mainnet Active</p>
+                  <p className="text-[7px] md:text-[9px] uppercase font-black text-blue-600 tracking-widest leading-none mb-1">Blockchain</p>
+                  <p className="text-[9px] md:text-xs font-bold text-slate-800 leading-none">Trustless Track</p>
                 </div>
               </div>
             </div>
