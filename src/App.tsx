@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { AppProvider } from './context/AppContext';
@@ -6,19 +7,19 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import RegisterProduct from './pages/RegisterProduct.tsx';
-import FarmerDashboard from './pages/FarmerDashboard.tsx';
-import ProcessorDashboard from './pages/ProcessorDashboard.tsx';
-import DistributorDashboard from './pages/DistributorDashboard.tsx';
-import RetailerDashboard from './pages/RetailerDashboard.tsx';
+import RegisterProduct from './pages/RegisterProduct';
+import FarmerDashboard from './pages/FarmerDashboard';
+import ProcessorDashboard from './pages/ProcessorDashboard';
+import DistributorDashboard from './pages/DistributorDashboard';
+import RetailerDashboard from './pages/RetailerDashboard';
 import AdminPanel from './pages/AdminPanel';
-import VerifyProduct from './pages/VerifyProduct.tsx';
-import LogEvent from './pages/LogEvent.tsx';
-import QRScanner from './pages/QRScanner.tsx';
+import VerifyProduct from './pages/VerifyProduct';
+import LogEvent from './pages/LogEvent';
+import QRScanner from './pages/QRScanner';
 
 import './App.css';
 
-function RoleDashboard() {
+const RoleDashboard: React.FC = () => {
   const { user } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
   switch (user.role) {
@@ -31,11 +32,11 @@ function RoleDashboard() {
   }
 }
 
-function App() {
+const App: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleGlobalClick = (e) => {
-    const a = e.target.closest('a');
+  const handleGlobalClick = (e: React.MouseEvent) => {
+    const a = (e.target as HTMLElement).closest('a');
     if (a) {
       const href = a.getAttribute('href');
       // Only intercept internal links that start with /

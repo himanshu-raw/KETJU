@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
-function Home() {
+const Home: React.FC = () => {
   return (
     <div className="ketju-page-wrapper w-full min-h-screen bg-surface dark:bg-slate-950 font-sans text-on-surface">
       <Navbar />
@@ -29,13 +29,13 @@ function Home() {
               
               <div className="flex flex-wrap gap-4 mb-16">
                 <Link to="/verify" className="inline-block">
-                  <button className="bg-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all cursor-pointer">
+                  <button className="bg-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:-translate-y-1 transition-all cursor-pointer border-none">
                     <span className="material-symbols-outlined">qr_code_scanner</span>
                     Scan a QR Code
                   </button>
                 </Link>
                 <Link to="/register" className="inline-block">
-                  <button className="border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold hover:bg-primary-container/5 transition-all cursor-pointer">
+                  <button className="border-2 border-primary-container text-primary-container px-8 py-4 rounded-full font-bold hover:bg-primary-container/5 transition-all cursor-pointer bg-transparent">
                     Register Your Farm
                   </button>
                 </Link>
@@ -211,7 +211,7 @@ function Home() {
               <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">Know Exactly What You're Eating</h2>
               <p className="text-xl text-slate-300 leading-relaxed mb-12">Scan the QR code on any KETJU-verified product to see the full journey — from the farm where it was grown to the store where you bought it.</p>
               <Link to="/verify" className="inline-block">
-                <button className="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/10 transition-all active:scale-95 cursor-pointer">
+                <button className="bg-white text-primary px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-white/10 transition-all active:scale-95 cursor-pointer border-none outline-none">
                   Try the Verifier
                 </button>
               </Link>
@@ -308,7 +308,7 @@ function Home() {
             <h5 className="text-white font-bold mb-6">Subscribe to Updates</h5>
             <div className="flex gap-2">
               <input className="bg-slate-900 border-none rounded-full px-4 py-2 text-sm w-full focus:ring-1 focus:ring-primary-container outline-none" placeholder="Email address" type="email" />
-              <button className="bg-primary-container text-white p-2 rounded-full flex items-center justify-center">
+              <button className="bg-primary-container text-white p-2 rounded-full flex items-center justify-center border-none">
                 <span className="material-symbols-outlined">send</span>
               </button>
             </div>
