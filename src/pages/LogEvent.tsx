@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { useApp, Stage } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
@@ -10,7 +10,8 @@ import {
   Settings, 
   CloudUpload, 
   AlertTriangle, 
-  Link as LinkIcon 
+  Link as LinkIcon,
+  ScanQrCode 
 } from 'lucide-react';
 
 type Step = 1 | 2 | 3 | 4;
@@ -31,6 +32,7 @@ export default function LogEvent() {
   const { user } = useAuth();
   const { getProductById, addEvent } = useApp();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const [step, setStep] = useState<Step>(1);
   const [form, setForm] = useState<EventForm>({
@@ -40,6 +42,20 @@ export default function LogEvent() {
     notes: '',
     metadata: '',
   });
+
+  useEffect(() => {
+    const batch = searchParams.get('batch');
+    if (batch) {
+      setForm(prev => ({ ...prev, batchId: batch }));
+      // Automatically lookup if batch is provided
+      const p = getProductById(batch);
+      if (p) {
+        setFoundProduct(p);
+        setStep(2);
+      }
+    }
+  }, [searchParams, getProductById]);
+
   const [foundProduct, setFoundProduct] = useState<ReturnType<typeof getProductById>>(undefined);
   const [lookupError, setLookupError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -170,6 +186,13 @@ export default function LogEvent() {
                   className="flex-1 bg-surface-container-low border-0 rounded-lg p-4 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary-container/40"
                   placeholder="Scan QR or enter e.g. CT-2024-0871"
                 />
+                <button
+                  onClick={() => navigate(`/scanner?returnTo=${encodeURIComponent(window.location.pathname)}`)}
+                  className="bg-slate-100 text-slate-600 p-4 rounded-lg hover:bg-slate-200 transition-all flex items-center justify-center"
+                  title="Open QR Scanner"
+                >
+                  <ScanQrCode className="w-6 h-6" />
+                </button>
                 <button onClick={lookup} className="bg-primary-container text-on-primary px-8 py-3 rounded-full text-sm font-bold hover:bg-primary transition-all">
                   Look Up Product
                 </button>
