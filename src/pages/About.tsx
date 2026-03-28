@@ -11,7 +11,8 @@ export default function About() {
       avatar: '/avatars/himanshu.png',
       github: 'https://github.com/himanshu-raw',
       x: '#',
-      linkedin: 'https://www.linkedin.com/in/himanshu-rawat-2b1137295/'
+      linkedin: 'https://www.linkedin.com/in/himanshu-rawat-2b1137295/',
+      bluesky: 'https://bsky.app/profile/h1manshu.bsky.social'
     },
     {
       name: 'Sushant',
@@ -20,7 +21,8 @@ export default function About() {
       avatar: 'S',
       github: 'https://github.com/Sushant1407',
       x: '#',
-      linkedin: 'https://www.linkedin.com/in/sushant-6bb7a3290/'
+      linkedin: 'https://www.linkedin.com/in/sushant-6bb7a3290/',
+      bluesky: '#'
     },
     {
       name: 'Kaushik Chaurasiya',
@@ -29,7 +31,8 @@ export default function About() {
       avatar: 'KC',
       github: 'https://github.com/kaushik122247',
       x: '#',
-      linkedin: 'https://www.linkedin.com/in/kaushik-chaurasiya-704301288/'
+      linkedin: 'https://www.linkedin.com/in/kaushik-chaurasiya-704301288/',
+      bluesky: '#'
     },
   ];
 
@@ -157,6 +160,11 @@ export default function About() {
                     {member.x !== '#' && (
                       <a href={member.x} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-blue-600 hover:bg-blue-50 transition-all">
                         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+                      </a>
+                    )}
+                    {member.bluesky !== '#' && (
+                      <a href={member.bluesky} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-[#0085ff] hover:bg-blue-50 transition-all">
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 10c-1.1-2.2-4.2-5.5-7.7-6.5-1.9-.6-3.1-.2-3.8.3C.3 4.3 0 5 0 5.8c0 2 1.2 4.1 3 5 0 .1.1.2.1.3 1.8.3 5.1.7 7 2.5-3.6 3.2-6.5 6.4-6.5 8.2 0 2.3 1.6 2.9 3 1.8 1.4-1.1 4.4-5.4 5.5-7.3 1.1 1.9 4.1 6.2 5.5 7.3 1.4 1.1 3 .5 3-1.8 0-1.8-2.9-5-6.5-8.2 1.9-1.8 5.2-2.2 7-2.5 0-.1.1-.2.1-.3 1.8-.9 3-3 3-5 0-.8-.3-1.5-.6-1.7-.8-.5-2-.9-3.9-.3-3.5 1-6.5 4.3-7.6 6.5z" /></svg>
                       </a>
                     )}
                   </div>
