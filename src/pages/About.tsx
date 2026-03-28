@@ -40,14 +40,23 @@ export default function About() {
     { name: 'IPFS', logo: 'https://raw.githubusercontent.com/ipfs/logo/master/vector/ipfs-logo-vector-black.svg' },
   ];
 
-  useEffect(() => {
-    if (window.location.hash === '#team') {
-      const element = document.getElementById('team');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+  const TeamAvatar = ({ member }: { member: typeof team[0] }) => {
+    const [imageError, setImageError] = React.useState(false);
+    const isImagePath = member.avatar.startsWith('/') || member.avatar.startsWith('http');
+
+    if (isImagePath && !imageError) {
+      return (
+        <img
+          src={member.avatar}
+          alt={member.name}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          onError={() => setImageError(true)}
+        />
+      );
     }
-  }, []);
+
+    return <span>{member.avatar.startsWith('/') ? member.name.split(' ').map(n => n[0]).join('') : member.avatar}</span>;
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100">
@@ -131,11 +140,7 @@ export default function About() {
               {team.map(member => (
                 <div key={member.name} className="group relative bg-white border border-slate-200 rounded-[2.5rem] p-8 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                   <div className="aspect-square w-24 h-24 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-3xl font-bold mb-6 text-white shadow-lg shadow-blue-500/20 overflow-hidden">
-                    {member.avatar.startsWith('/') ? (
-                      <img src={member.avatar} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                    ) : (
-                      member.avatar
-                    )}
+                    <TeamAvatar member={member} />
                   </div>
                   <h3 className="text-xl font-bold mb-1 text-slate-900">{member.name}</h3>
                   <p className="text-blue-600 text-sm font-bold mb-3 uppercase tracking-wider">{member.role}</p>
