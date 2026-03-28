@@ -6,7 +6,6 @@ import {
   Truck,
   UserCheck,
   Factory,
-  Link as LinkIcon,
   ShieldCheck
 } from 'lucide-react';
 
@@ -164,13 +163,7 @@ const SupplyChainInteractive: React.FC = () => {
         ))}
       </div>
 
-      {/* Center Hub */}
-      <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-[0_0_40px_rgba(124,58,237,0.15)] flex items-center justify-center text-indigo-600 border-2 border-slate-50 z-30 transition-all duration-500 hover:scale-110"
-      >
-        <div className="absolute inset-0 rounded-full bg-indigo-500/10 animate-ping opacity-40"></div>
-        <LinkIcon className="w-8 h-8 relative z-40" />
-      </div>
+
     </div>
   );
 };
